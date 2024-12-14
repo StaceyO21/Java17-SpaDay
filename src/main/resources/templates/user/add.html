@@ -9,10 +9,10 @@
 
 <form th:action="user" method="POST">
     <label>Username:
-        <input type="text" name="username" required>
+        <input type="text" name="username" th:value="${username}" required>
     </label>
         <label>Email:
-        <input type="email" name="email">
+        <input type="email" name="email" th:value="${email}">
         </label>
     <label>Password:
         <input type="password" name="password" required>

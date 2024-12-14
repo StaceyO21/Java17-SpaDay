@@ -1,26 +1,32 @@
 package org.launchcode.models;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class User {
 
+    private static int nextId = 1;
+    private final int id;
+
     private String username;
     private String email;
     private String password;
+    private final LocalDate dateRegistered;
+
+
 
     public User(String username, String email, String password) {
+        this.id = nextId;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.dateRegistered = LocalDate.now();
+        nextId++;
     }
 
-    private static final List<User> users = new ArrayList<>();
-
-//
-//    public static void add(User newUser) {
-//        User.add(newUser);
-//    }
-
+    public int getId() {
+        return id;
+    }
 
     public String getUsername() {
         return username;
@@ -46,12 +52,8 @@ public class User {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public LocalDate getDateRegistered() {
+        return dateRegistered;
     }
+
 }
